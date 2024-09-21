@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .gallery-header {
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+            padding: 20px;
+            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            border-radius: 10px;
+            animation: moveBackground 10s linear infinite;
+        }
+        @keyframes moveBackground {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .gallery-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            animation: fadeInDown 1s forwards;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        .gallery-header p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            animation: fadeInUp 1s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .gallery-header .btn {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+        .gallery-header .btn:hover {
+            transform: scale(1.1);
+            background-color: #0056b3;
+        }
+        .image-counter {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-top: 10px;
+            animation: fadeIn 1s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: scaleRotate 0.5s ease forwards;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            transition: opacity 0.3s;
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item.fade-in {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        @keyframes scaleRotate {
+            0% {
+                transform: scale(0) rotate(0);
+            }
+            100% {
+                transform: scale(1) rotate(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="gallery-header">
+        <h1 class="animate__animated animate__fadeInDown">Fahim's Gallery</h1>
+        <p class="animate__animated animate__fadeInUp">Explore my collection of photos.</p>
+        <!-- <button class="btn btn-primary">View More</button> -->
+        <!-- <div class="image-counter">Total Images: <span id="imageCount">0</span></div> -->
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_1.jpg" data-description="Description 1">
+            <img src="galllery/photo_1.jpg" alt="Description 1">
+            <div class="overlay">Description 1</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_2.jpg" data-description="Description 2">
+            <img src="galllery/photo_2.jpg" alt="Description 2">
+            <div class="overlay">Description 2</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_4.jpg" data-description="Description 4">
+            <img src="galllery/photo_4.jpg" alt="Description 4">
+            <div class="overlay">Description 4</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_5.jpg" data-description="Description 5">
+            <img src="galllery/photo_5.jpg" alt="Description 5">
+            <div class="overlay">Description 5</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_6.jpg" data-description="Description 6">
+            <img src="galllery/photo_6.jpg" alt="Description 6">
+            <div class="overlay">Description 6</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_7.jpg" data-description="Description 7">
+            <img src="galllery/photo_7.jpg" alt="Description 7">
+            <div class="overlay">Description 7</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_8.jpg" data-description="Description 8">
+            <img src="galllery/photo_8.jpg" alt="Description 8">
+            <div class="overlay">Description 8</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_9.jpg" data-description="Description 9">
+            <img src="galllery/photo_9.jpg" alt="Description 9">
+            <div class="overlay">Description 9</div>
+        </div>
+
+
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_1.jpg" data-description="Description 1">
+            <img src="galllery/photo_10.jpg" alt="Description 1">
+            <div class="overlay">Description 1</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_2.jpg" data-description="Description 2">
+            <img src="galllery/photo_11.jpg" alt="Description 2">
+            <div class="overlay">Description 2</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_4.jpg" data-description="Description 4">
+            <img src="galllery/photo_4.jpg" alt="Description 4">
+            <div class="overlay">Description 4</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_5.jpg" data-description="Description 5">
+            <img src="galllery/photo_5.jpg" alt="Description 5">
+            <div class="overlay">Description 5</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_6.jpg" data-description="Description 6">
+            <img src="galllery/photo_6.jpg" alt="Description 6">
+            <div class="overlay">Description 6</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_7.jpg" data-description="Description 7">
+            <img src="galllery/photo_7.jpg" alt="Description 7">
+            <div class="overlay">Description 7</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_8.jpg" data-description="Description 8">
+            <img src="galllery/photo_8.jpg" alt="Description 8">
+            <div class="overlay">Description 8</div>
+        </div>
+        <div class="gallery-item fade-in" data-bs-toggle="modal" data-bs-target="#lightboxModal" data-img-src="galllery/photo_9.jpg" data-description="Description 9">
+            <img src="galllery/photo_9.jpg" alt="Description 9">
+            <div class="overlay">Description 9</div>
+        </div>
+
+
+
+
+
+        
+    </div>
+</div>
+
+<!-- Lightbox Modal -->
+<div class="modal fade" id="lightboxModal" tabindex="-1" aria-labelledby="lightboxModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img id="lightboxImage" src="" alt="" class="img-fluid">
+                <p id="lightboxDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    $('#lightboxModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget);
+        var imgSrc = button.data('img-src');
+        var description = button.data('description');
+        
+        var modal = $(this);
+        modal.find('#lightboxImage').attr('src', imgSrc);
+        modal.find('#lightboxDescription').text(description);
+    });
+
+    // Add fade-in effect to gallery items
+    $(document).ready(function() {
+        $('.gallery-item').each(function(index) {
+            $(this).delay(100 * index).queue(function(next) {
+                $(this).addClass('fade-in');
+                next();
+            });
+        });
+
+        // Count total images
+        $('#imageCount').text($('.gallery-item').length);
+    });
+
+    // Modal entrance animation
+    $('#lightboxModal').on('shown.bs.modal', function () {
+        $(this).find('.modal-content').addClass('animate__animated animate__zoomIn');
+    });
+</script>
+</body>
+</html>
